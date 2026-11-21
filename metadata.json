@@ -1,0 +1,6 @@
+{
+  "name": "QuantScan — Institutional Chart Pattern Scanner",
+  "description": "AI Quantitative & Technical Chart Pattern Scanner untuk Forex, XAUUSD, Crypto, dan Saham (IDX/US) dengan validasi struktur, SMC, dan kalkulasi trading plan terukur.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
