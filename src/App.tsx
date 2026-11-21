@@ -9,6 +9,8 @@ import { PatternLibraryView } from './components/PatternLibraryView';
 import { ScanHistoryView } from './components/ScanHistoryView';
 import { RiskCalculatorView } from './components/RiskCalculatorView';
 import { FundamentalNewsView } from './components/FundamentalNewsView';
+import { PWAInstallButton } from './components/PWAInstallButton';
+import { OfflineIndicator } from './components/OfflineIndicator';
 import { MARKET_PRESETS } from './data/marketPresets';
 import { buildSampleUploadedChartDemo } from './utils/chartScreenshotDemo';
 import type {
@@ -210,15 +212,18 @@ export default function App() {
             <span>Forex · XAUUSD · Crypto · Saham IDX/US</span>
           </div>
 
-          <button
-            type="button"
-            onClick={() => setIsDark((prev) => !prev)}
-            aria-label={isDark ? 'Aktifkan mode terang' : 'Aktifkan mode gelap'}
-            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 transition-colors hover:bg-slate-100 whitespace-nowrap shrink-0 dark:border-slate-800 dark:bg-[#0F1522] dark:text-slate-200 dark:hover:bg-slate-800"
-          >
-            {isDark ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
-            {isDark ? 'Mode Terang' : 'Mode Gelap'}
-          </button>
+          <div className="flex flex-wrap items-center gap-2">
+            <PWAInstallButton />
+            <button
+              type="button"
+              onClick={() => setIsDark((prev) => !prev)}
+              aria-label={isDark ? 'Aktifkan mode terang' : 'Aktifkan mode gelap'}
+              className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 transition-colors hover:bg-slate-100 whitespace-nowrap shrink-0 dark:border-slate-800 dark:bg-[#0F1522] dark:text-slate-200 dark:hover:bg-slate-800"
+            >
+              {isDark ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
+              {isDark ? 'Mode Terang' : 'Mode Gelap'}
+            </button>
+          </div>
         </div>
 
         {activeTab === 'scanner' && (
@@ -341,6 +346,7 @@ export default function App() {
 
         {activeTab === 'news' && <FundamentalNewsView />}
       </main>
+      <OfflineIndicator />
     </div>
   );
 }
